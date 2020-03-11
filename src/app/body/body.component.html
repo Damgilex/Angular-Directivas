@@ -1,0 +1,51 @@
+<h1>Noticias de curso de Angular</h1>
+
+<div class="row">
+    <div class="col-md-10">
+
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <select class="form-control" id="selectorNoticias" (change)="eventoControl($event)">
+                <option *ngFor="let objeto of categorias" value="{{objeto.codigo}}">{{objeto.texto}}</option>
+            </select>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <div *ngFor="let noticia of noticias">
+            <div *ngIf="noticia.categoria.codigo!==2; else opcion2"> 
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <img src="{{noticia.imagen}}" style="width: 100%" alt="">
+                    </div>
+    
+                    <div class="col-md-8">
+                        <h5>{{noticia.titulo}}</h5>
+                        <p>{{noticia.texto}}</p>
+                    </div>
+                </div> 
+            </div>
+                
+
+        <ng-template #opcion2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-8">
+                    <h5>{{noticia.titulo}}</h5>
+                    <p>{{noticia.texto}}</p>
+                </div>
+            </div> 
+        </ng-template>
+                
+           
+        </div>
+    </div>
+</div>
